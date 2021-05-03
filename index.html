@@ -96,6 +96,13 @@
     </body>
 
     <script>
+
+document.addEventListener("click", event => {
+  event.preventDefault()
+  event.stopPropagation()
+})
+
+
         const businessOptions = [`bars`, `schools`, `hair salons`, `Mothers Day`, `big box stores`, `cottage trips`, `LTC facilities`, `weddings`, `surgeries`, `gyms`, `malls`, `casinos`, `dance studios`, `Adamson BBQ`, `birthday parties`, `professional sports`, `Thanksgiving dinners`, `drive-in movie theaters`, `banquet halls`, `restaurants`, `churches`, `strip clubs`, `playgrounds`, `grocery stores`, `trick-or-treating`, `Brampton gatherings`, `meat packing plants`, `movie theaters`, `OHL hockey`, `sleepovers`, `daycares`];
 
         const policyOptions = [`limited to 25 people`, `reopened immediately`, `open for curbside pickup`, `protected against lawsuits`, `shut down for two weeks`, `under an emergency brake`, `canceled`, `extended`, `closed at 10pm`, `open before Christmas`, `locked down on Monday`, `open in York Region but shut down in Toronto`];
@@ -121,16 +128,6 @@
 
         para.textContent = `Today's announcement is that ` + businessResult + ` will be ` + policyResult + ` because ` + justificationResult + `.`;
     }
-
-
-    var lastTouchEnd = 0;
-document.addEventListener('touchend', function (event) {
-  var now = (new Date()).getTime();
-  if (now - lastTouchEnd <= 300) {
-    event.preventDefault();
-  }
-  lastTouchEnd = now;
-}, false);
 
 
     </script>
