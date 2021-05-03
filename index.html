@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title id="title">Doug Ford | Policy Generator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:&display=swap" rel="stylesheet">
+        <style>
+            html {
+                background-color: #18191A;
+                color: #E4E6EB;
+                margin: 0;
+                padding: 0;
+                overscroll-behavior: none;
+                font-family: 'lato', sans-serif;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); 
+                -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+                font-size: 18px;
+                outline: none;
+            }
+
+            button {
+                background-color: #36B6FF;
+                border: none;
+                border-radius: 6px;
+                font-size: 2em;
+                padding: .4em;
+                font-weight: 900;
+                color: #fff;
+                outline: none;
+                margin: 1em 0;
+            }
+
+            button:hover, button:active {
+                transform: scale(1.2);
+            }
+
+            #main-container {
+                padding: 0 1em;
+                text-align: center;
+            }
+
+            #policyGenText {
+                font-size: 2em;
+            }
+            
+            #avatar {
+                width: 5.2em;
+                border-radius: 50%;
+            }
+
+            #profile-area {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="profile-area">
+            <div id="greeting">
+                <h1>Good morning, Mr. Ford!</h1>
+                <p>Click the button below to decide what policy you want to enact in Ontario today.</p>
+            </div>
+            <div id="avatarContainer">
+                <img src="images/doug-ford-avatar.jpeg" alt="Doug Ford Profile Pic" id="avatar">
+            </div>
+            </div>
+        <button onclick="policyGenerator()">Generate Policy</button>
+            <div id="policyGen">
+                <p id ="policyGenText">
+
+                </p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const businessOptions = [`bars`, `schools`, `hair salons`, `Mothers Day`, `big box stores`, `cottage trips`, `LTC facilities`, `weddings`, `surgeries`, `gyms`, `malls`, `casinos`, `dance studios`, `Adamson BBQ`, `birthday parties`, `professional sports`, `Thanksgiving dinners`, `drive-in movie theaters`, `banquet halls`, `restaurants`, `churches`, `strip clubs`, `playgrounds`, `grocery stores`, `trick-or-treating`, `Brampton gatherings`, `meat packing plants`, `movie theaters`, `OHL hockey`, `sleepovers`, `daycares`];
+
+        const policyOptions = [`limited to 25 people`, `reopened immediately`, `open for curbside pickup`, `protected against lawsuits`, `shut down for two weeks`, `under an emergency brake`, `canceled`, `extended`, `closed at 10pm`, `open before Christmas`, `locked down on Monday`, `open in York Region but shut down in Toronto`];
+
+        const justificationOptions = [`I will be like an 800 pound gorilla on their back`, `I'm done with this`, `I'm no health expert`, `everyone makes mistakes`, `we have to do something`, `everyone is going hog wild`, `I'm not a timbit'`, `we have a bunch of yahoos over here`, `we're seeing a plateau, per se`, `that's one doctor's perspective`, `I look like a sheepdog right now`, `we need to bend the trend here`, `the cheese slipped off the cracker`, `we can't force people to get tested`, `if we weren't so backlogged on MRIs, I'd send all these yahoos for an MRI to get their brain scanned`, `that's the best plan in the entire country`, `we're a few fries short of a happy meal`, `I make the best cherry cheesecake ever`, `Dr. Williams is a glass half full kind of guy`, `I trusted the judgement of the people of Ontario`, `g-d knows I need a little bit of exercise`, `I didn't sleep last night`, `I just spoke with my wife and she's not happy`, `we need to hunker down`, `everything will be hunky dory`, `people are hugging and kissing and swinging off the trees and spittin' and everything else`]
+
+
+        const html = document.querySelector('html');
+
+        const btn = document.querySelector(`button`);   
+        
+        const para = document.getElementById(`policyGenText`);
+
+        function policyGenerator() {
+        let business = Math.floor(Math.random()*businessOptions.length);
+        let businessResult = businessOptions[business];
+
+        let policy = Math.floor(Math.random()*policyOptions.length);
+        let policyResult = policyOptions[policy];
+
+        let justification = Math.floor(Math.random()*justificationOptions.length);
+        let justificationResult = justificationOptions[justification];
+
+        para.textContent = `Today's announcement is that ` + businessResult + ` will be ` + policyResult + ` because ` + justificationResult + `.`;
+    }
+    </script>
+</html>
