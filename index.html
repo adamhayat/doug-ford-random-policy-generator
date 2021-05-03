@@ -19,6 +19,10 @@
                 outline: none;
             }
 
+            h1 {
+                font-size: 7vw;
+            }
+
             button {
                 background-color: #36B6FF;
                 border: none;
@@ -28,7 +32,7 @@
                 font-weight: 900;
                 color: #fff;
                 outline: none;
-                margin: 1em 0;
+                margin: 1em 0 0 0;
             }
 
             button:hover, button:active {
@@ -45,14 +49,24 @@
             }
             
             #avatar {
-                width: 5.2em;
+                width: 5em;
                 border-radius: 50%;
+            }
+
+            #avatarContainer {
+                padding: 1em;
             }
 
             #profile-area {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+
+            @media only screen and (min-width: 760px) {
+                h1 {
+                    font-size: 48px;
+                }
             }
 
         </style>
@@ -62,11 +76,13 @@
             <div id="profile-area">
             <div id="greeting">
                 <h1>Good morning, Mr. Ford!</h1>
-                <p>Click the button below to decide what policy you want to enact in Ontario today.</p>
             </div>
             <div id="avatarContainer">
                 <img src="images/doug-ford-avatar.jpeg" alt="Doug Ford Profile Pic" id="avatar">
             </div>
+            </div>
+            <div id="para-text">
+                <p>Click the button below to decide what policy you want to enact in Ontario today.</p>
             </div>
         <button onclick="policyGenerator()">Generate Policy</button>
             <div id="policyGen">
